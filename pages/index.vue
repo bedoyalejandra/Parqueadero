@@ -6,7 +6,7 @@
 			<div class="espace">**</div>
 			<b-button href="/createVehicle" variant="outline-light">Crear Vehículo</b-button>
 			<div class="espace">**</div>
-			<b-button href="/listVehicles" variant="outline-light">Lista de Vehículos</b-button>
+			<b-button href="/createVehicle#list" variant="outline-light">Lista de Vehículos</b-button>
 
 		</div>
 	</div>

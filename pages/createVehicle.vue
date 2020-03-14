@@ -9,13 +9,13 @@
 			<div class="espace">**</div>
 			<b-button href="/createVehicle" variant="outline-light">Crear Vehículo</b-button>
 			<div class="espace">**</div>
-			<b-button href="/listVehicles" variant="outline-light">Lista de Vehículos</b-button>
+			<b-button href="#list" variant="outline-light">Lista de Vehículos</b-button>
 
 		</div>
 	</div>
 
     
-        <div class="tittle">{{message}}</div>
+        <div class="tittle">Crear Vehículo</div>
 
   <div class="containerForm">
 <b-form @submit.stop.prevent action="javascript:void(0)" @submit="createVehicle()">
@@ -103,9 +103,17 @@
 
 
 <b-button type="submit" block variant="primary" v-if="!inEdition">Crear vehículo</b-button>
-<b-button @click="updateVehicle()" block variant="warning" v-else>Actualizar vehículo</b-button>
+<b-button @click="updateVehicle()" block variant="primary" v-else>Actualizar vehículo</b-button>
 </b-form>
 
+<div class="tittle" id="list">Listado de Vehículos</div>
+
+<b-table striped hover :items="list_vehicles">
+<template v-slot:cell(acciones)="row">
+<b-button size="sm" @click="loadVehicle(row)" class="mr-2">Modificar</b-button>
+<b-button size="sm" @click="deleteVehicle(row)" class="mr-2">Eliminar</b-button>
+</template>
+</b-table>
     </div>
 
 </div>    

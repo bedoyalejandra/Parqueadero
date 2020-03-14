@@ -34,6 +34,7 @@ export default {
         };
     },
     mounted() {
+
     },
     computed: {
         validationType() {
@@ -98,7 +99,7 @@ export default {
         },
         updateVehicle() {
             let position = this.list_vehicles.findIndex(
-                vehicle => vehicle.placa == item.placa
+                vehicle => vehicle.placa == this.vehicle.placa
             );
             this.list_vehicles.splice(position, 1, this.vehicle);
             this.vehicle = {

@@ -1,0 +1,19 @@
+{
+  "name": "parqueadero",
+  "version": "1.0.0",
+  "description": "",
+  "main": "nuxt.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nuxt"
+  },
+  "author": "Alejandra Bedoya",
+  "license": "ISC",
+  "dependencies": {
+    "boostrap": "^2.0.0",
+    "bootstrap": "^4.4.1",
+    "bootstrap-vue": "^2.7.0",
+    "nuxt": "^2.11.0",
+    "vue": "^2.6.11"
+  }
+}

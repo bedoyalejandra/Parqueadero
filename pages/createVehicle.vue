@@ -36,8 +36,11 @@
             id="plaque"
         />
         <b-form-invalid-feedback :state="validationPlaque">
-        Campo obligatorio
+       Campo obligatorio
     </b-form-invalid-feedback>
+    <b-form-invalid-feedback :state="validationExists">
+        Vehículo existente
+      </b-form-invalid-feedback>
     </b-form-group>
 
     
@@ -113,9 +116,8 @@
     <b-form-group @submit.stop.prevent label="Hora de ingreso" label-for="hour">
         <b-form-input
             class="form-control"
-            type="number"
             v-model="vehicle.hourInput"
-            placeholder="Ingrese la hora de ingreso"
+            placeholder="HH:MM"
             id="hour"
         />
 

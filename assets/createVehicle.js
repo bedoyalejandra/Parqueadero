@@ -3,6 +3,7 @@ export default {
         return {
             message: "Crear Vehículo",
             time: "",
+            error: "Campo obligatorio",
             inEdition: false,
             vehicle: {
                 type: null,
@@ -39,17 +40,32 @@ export default {
         };
     },
     mounted() {
-
+        this.getLocalStorage();
     },
     computed: {
         validationType() {
             return this.vehicle.type != null
         },
 
+        validationExists() {
+
+            var status = true
+
+            for (let i in this.list_vehicles) {
+
+                var tem = this.list_vehicles[i];
+                if(tem.plaque == this.vehicle.plaque){
+                    this.error = "Vehículo existente"
+                    status = false
+                }
+            }
+    
+            return status
+        },
         validationPlaque() {
             return this.vehicle.plaque.length > 0
         },
-
+        
         validationColor() {
             return this.vehicle.color.length > 0
         },
@@ -67,7 +83,7 @@ export default {
         },
 
         validationHour() {
-            return this.vehicle.hourInput > 0 && this.vehicle.hourInput < 24 
+            return this.vehicle.hourInput.length > 0
         }
 
     },
@@ -112,6 +128,11 @@ export default {
                 this.list_vehicles = JSON.parse(localStorage.getItem("vehicles"));
             }
         },
+        getLocalStorage() {
+            if (localStorage.getItem("vehicles")) {
+                this.list_vehicles = JSON.parse(localStorage.getItem("vehicles"));
+            }
+        },
         updateVehicle() {
             let position = this.list_vehicles.findIndex(
                 vehicle => vehicle.placa == this.vehicle.placa
@@ -149,7 +170,6 @@ export default {
                 return this.time * 21000;
             }
         },
-
         giveOut({item}){
             let vh = this.list_vehicles.find(
                 vehicle => vehicle.placa == item.placa

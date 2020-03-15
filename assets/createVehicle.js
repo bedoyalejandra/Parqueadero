@@ -2,6 +2,7 @@ export default {
     data() {
         return {
             message: "Crear Vehículo",
+            time: "",
             inEdition: false,
             vehicle: {
                 type: null,
@@ -9,8 +10,10 @@ export default {
                 color: "",
                 make: "",
                 city: "",
-                date:"",
-                hour: "",
+                dateInput:"",
+                hourInput: "",
+                dateOutput:"",
+                hourOuput: "",
                 acciones: true
             },
             list_vehicles: [
@@ -20,8 +23,10 @@ export default {
                     color: "Plata",
                     make: "Chevrolet",
                     city: "Envigado",
-                    date:"2020-03-14",
-                    hour: "14:03",
+                    dateInput:"2020-03-14",
+                    hourInput: "14:03",
+                    dateOutput:"",
+                    hourOuput: "",
                     acciones: true
                 }
             ],
@@ -67,8 +72,10 @@ export default {
                 color: "",
                 make: "",
                 city: "",
-                date:"",
-                hour: "",
+                dateInput:"",
+                hourInput: "",
+                dateOutput:"",
+                hourOuput: "",
                 acciones: true
             };
             this.saveLocalStorage();
@@ -108,11 +115,95 @@ export default {
                 color: "",
                 make: "",
                 city: "",
-                date:"",
-                hour: "",
+                dateInput:"",
+                hourInput: "",
+                dateOutput:"",
+                hourOuput: "",
                 acciones: true
             };
             this.saveLocalStorage();
-        }
+        },
+
+        getLocalStorage() {
+            if (localStorage.getItem("vehicles")) {
+                this.list_vehicles = JSON.parse(localStorage.getItem("vehicles"));
+            }
+        },
+
+        valuePay(item){
+            if(item == "carro"){
+                return this.time * 8000;
+            }else if(item == "moto"){
+                return this.time * 4000;
+            }else if(item == "bicicleta"){
+                return this.time * 2000;
+            }else{
+                return this.time * 21000;
+            }
+        },
+
+        giveOut({item}){
+            let vh = this.list_vehicles.find(
+                vehicle => vehicle.placa == item.placa
+            );
+            var now = new Date();
+            let dateOutput = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDay();
+            let hourOuput = now.getHours() + ":" + now.getMinutes();
+            vh.dateOutput = dateOutput;
+            vh.hourOuput = hourOuput;
+            let srt = vh.dateInput.split("-")
+            let hur = vh.hourInput.split(":")
+            let date = new Date(srt[0], (srt[1] - 1), srt[2], hur[0], hur[1]);
+            var time = (now.getTime() - date.getTime())/(1000 * 60 * 60);
+            this.time = Math.round(time);
+            this.inEdition = true;
+            this.vehicle = Object.assign({}, vh);
+            this.saveLocalStorage();
+
+
+
+
+
+
+        const h = this.$createElement
+        // Using HTML string
+        const titleVNode = h('div', { domProps: { innerHTML: 'Dar salida al vehículo' } })
+        // More complex structure
+        const messageVNode = h('div', { class: ['foobar'] }, [
+          h('p', { class: ['text-center'] }, [
+            h('strong', vh.plaque),
+          ]),
+          h('p', { class: ['text-center'] }, [
+            'El vehículo tuvo una permanencia de ',
+            h('strong', this.time),
+            ' horas ',
+          ]),
+          h('b-img', {
+            props: {
+              src: 'https://vectorified.com/images/payment-icon-png-5.png',
+              thumbnail: true,
+              center: true,
+              fluid: true, rounded: 'circle'
+            }
+          }),
+          h('p', { class: ['text-center'] }, [
+            'El valor a pagar es ',
+            h('strong', this.valuePay(vh.type)),
+            ' pesos ',
+          ]),
+        ])
+        // We must pass the generated VNodes as arrays
+        this.$bvModal.msgBoxOk([messageVNode], {
+          title: [titleVNode],
+          
+          okTitle: 'Aceptar',
+          centered: true, 
+        })
+        },
+
+        showMsgOk () {
+            
+          }
+     
     }
 };

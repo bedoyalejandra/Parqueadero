@@ -73,13 +73,13 @@
         <b-input-group  class = "mb-3" > 
         <b-form-input 
                 id = "date" 
-                v-model ="vehicle.date" 
+                v-model ="vehicle.dateInput" 
                 type = "text" 
                 placeholder = "AAAA-MM-DD" 
         > </b-form-input > 
         <b-input-group-append > 
             <b-form-datepicker 
-                v-model ="vehicle.date" 
+                v-model ="vehicle.dateInput" 
                 button-only 
                 right 
                 locale = "en-US" 
@@ -95,7 +95,7 @@
         <b-form-input
             class="form-control"
             type="number"
-            v-model="vehicle.hour"
+            v-model="vehicle.hourInput"
             placeholder="Ingrese la hora de ingreso"
             id="hour"
         />
@@ -107,11 +107,13 @@
 </b-form>
 
 <div class="tittle" id="list">Listado de Vehículos</div>
-
+{{time}}
 <b-table striped hover :items="list_vehicles">
 <template v-slot:cell(acciones)="row">
-<b-button size="sm" @click="loadVehicle(row)" class="mr-2">Modificar</b-button>
-<b-button size="sm" @click="deleteVehicle(row)" class="mr-2">Eliminar</b-button>
+<b-button size="sm" @click="loadVehicle(row)" variant="primary" class="mr-2">Modificar</b-button>
+<b-button size="sm" @click="deleteVehicle(row)" variant="primary" class="mr-2">Eliminar</b-button>
+<b-button size="sm" @click="giveOut(row)" variant="primary" class="mr-2">Dar salida</b-button>
+
 </template>
 </b-table>
     </div>

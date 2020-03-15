@@ -137,9 +137,9 @@
 <b-button size="sm" @click="loadVehicle(row)" variant="primary" class="mr-2">Modificar</b-button>
 <b-button size="sm" @click="deleteVehicle(row)" variant="primary" class="mr-2">Eliminar</b-button>
 <b-button size="sm" @click="giveOut(row)" variant="primary" class="mr-2">Dar salida</b-button>
-
 </template>
 </b-table>
+
     </div>
 
 </div>    

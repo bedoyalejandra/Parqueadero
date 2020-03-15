@@ -1,4 +1,5 @@
 <template>
+<div>
 	<div class="navbar">
 		<div class="navbar2">
 
@@ -11,7 +12,37 @@
 		</div>
 	</div>
 
+	<div class="container">
+			<div class="container2">
+				    <b-img src="../images/car.png" height="200" rounded="circle" alt="Circle image"></b-img>
+					<div class="tittle"> Carros </div>
+					<div class="text"> $ 8.000 </div>
 
+		</div>
+
+		<div class="container2">
+				    <b-img src="../images/bike.png" height="200" rounded="circle" alt="Circle image"></b-img>
+					<div class="tittle"> Bicicletas </div>
+					<div class="text"> $ 2.000 </div>
+
+		</div>
+
+		<div class="container2">
+				    <b-img src="../images/motocycle.png" height="200" rounded="circle" alt="Circle image"></b-img>
+					<div class="tittle"> Motos </div>
+					<div class="text"> $ 4.000 </div>
+
+		</div>
+
+		<div class="container2">
+				    <b-img src="../images/truck.png" height="200" rounded="circle" alt="Circle image"></b-img>
+					<div class="tittle"> Camiones </div>
+					<div class="text"> $ 21.000 </div>
+
+		</div>
+	</div>
+
+</div>
     
 </template>
 
@@ -20,7 +51,7 @@
 <style scoped>
 
 	.navbar{
-		background-color: #006cff;
+		background-color: #007acc;
 	}
 
 	.navbar2{	
@@ -64,8 +95,42 @@
 		display: inline-block;
 	}
 
+	.container2{
+				background-color: #efefef;
+		display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	padding: 20px;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+	}
+
+	.container {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: space-between
+}
+
+        .tittle{
+        font-family: 'Oswald', sans-serif;
+        font-size: 30px;
+        font-weight: bold;
+        color: #007acc
+        }
+
+		        .text{
+        font-family: 'Oswald', sans-serif;
+        font-size: 20px;
+        font-weight: bold;
+        color: #000
+        }
+
 	.espace{
-		color: #006cff
+		color: #007acc
 	}
 
 

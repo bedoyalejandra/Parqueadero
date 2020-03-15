@@ -40,6 +40,7 @@ export default {
         };
     },
     mounted() {
+        this.saveLocalStorage();
         this.getLocalStorage();
     },
     computed: {
@@ -107,14 +108,16 @@ export default {
         },
         deleteVehicle({ item }) {
             let position = this.list_vehicles.findIndex(
-                vehicle => vehicle.placa == item.placa
+                vehicle => vehicle.plaque == item.plaque
             );
             this.list_vehicles.splice(position, 1);
+            console.log(item)
+            console.log("HOLAAAAAA")
             this.saveLocalStorage();
         },
         loadVehicle({ item }) {
             let vh = this.list_vehicles.find(
-                vehicle => vehicle.placa == item.placa
+                vehicle => vehicle.plaque == item.plaque
             );
             this.inEdition = true;
             this.vehicle = Object.assign({}, vh);
@@ -128,14 +131,10 @@ export default {
                 this.list_vehicles = JSON.parse(localStorage.getItem("vehicles"));
             }
         },
-        getLocalStorage() {
-            if (localStorage.getItem("vehicles")) {
-                this.list_vehicles = JSON.parse(localStorage.getItem("vehicles"));
-            }
-        },
+
         updateVehicle() {
             let position = this.list_vehicles.findIndex(
-                vehicle => vehicle.placa == this.vehicle.placa
+                vehicle => vehicle.plaque == this.vehicle.plaque
             );
             this.list_vehicles.splice(position, 1, this.vehicle);
             this.vehicle = {
@@ -170,9 +169,10 @@ export default {
                 return this.time * 21000;
             }
         },
+
         giveOut({item}){
             let vh = this.list_vehicles.find(
-                vehicle => vehicle.placa == item.placa
+                vehicle => vehicle.plaque == item.plaque
             );
             var now = new Date();
             let dateOutput = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDay();
@@ -184,14 +184,8 @@ export default {
             let date = new Date(srt[0], (srt[1] - 1), srt[2], hur[0], hur[1]);
             var time = (now.getTime() - date.getTime())/(1000 * 60 * 60);
             this.time = Math.round(time);
-            this.inEdition = true;
             this.vehicle = Object.assign({}, vh);
             this.saveLocalStorage();
-
-
-
-
-
 
         const h = this.$createElement
         // Using HTML string
@@ -228,10 +222,8 @@ export default {
           centered: true, 
         })
         },
-
-        showMsgOk () {
-            
-          }
      
     }
 };
+
+

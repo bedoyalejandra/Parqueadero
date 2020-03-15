@@ -22,54 +22,69 @@
 
     <b-form-group label="Tipo">
         <b-form-select v-model="vehicle.type" :options="options_type"></b-form-select>
+
+        <b-form-invalid-feedback :state="validationType">
+        Campo obligatorio
+    </b-form-invalid-feedback>
     </b-form-group>
 
     <b-form-group @submit.stop.prevent label="Placa" label-for="plaque">
         <b-form-input
             class="form-control"
             v-model="vehicle.plaque"
-            :state="validationId"
             placeholder="Placa"
             id="plaque"
         />
-    </b-form-group>
-
-    <b-form-invalid-feedback :state="validationPlaque">
+        <b-form-invalid-feedback :state="validationPlaque">
         Campo obligatorio
     </b-form-invalid-feedback>
+    </b-form-group>
 
-    <b-form-group label="Color" label-for="color">
+    
+
+    <b-form-group @submit.stop.prevent label="Color" label-for="color">
         <b-form-input
             class="form-control"
             v-model="vehicle.color"
             placeholder="Ingrese el color"
             id="color"
         />
+
+        <b-form-invalid-feedback :state="validationColor">
+        Campo obligatorio
+    </b-form-invalid-feedback>
+
     </b-form-group>
 
-    <b-form-group label="Marca" label-for="marca">
+    <b-form-group @submit.stop.prevent label="Marca" label-for="marca">
         <b-form-input
             class="form-control"
             v-model="vehicle.make"
             placeholder="Ingrese la marca"
             id="marca"
         />
+
+        <b-form-invalid-feedback :state="validationMake">
+        Campo obligatorio
+    </b-form-invalid-feedback>
     </b-form-group>
 
-    <b-form-group label="Ciudad" label-for="city">
+    <b-form-group @submit.stop.prevent label="Ciudad" label-for="city">
         <b-form-input
             class="form-control"
             v-model="vehicle.city"
             placeholder="Ingrese la ciudad que aparece en la placa"
             id="city"
         />
+
+         <b-form-invalid-feedback :state="validationCity">
+        Campo obligatorio
+    </b-form-invalid-feedback>
     </b-form-group>
 
-    <b-form-valid-feedback :state="validationCity">
-        Este campo es obligatorio
-    </b-form-valid-feedback>
+   
 
-    <b-form-group label="Fecha de ingreso" label-for="date">
+    <b-form-group @submit.stop.prevent label="Fecha de ingreso" label-for="date">
         <b-input-group  class = "mb-3" > 
         <b-form-input 
                 id = "date" 
@@ -87,11 +102,15 @@
             > </b-form-datepicker> 
         </b-input-group-append> 
         </b-input-group>
+
+        <b-form-invalid-feedback :state="validationDate">
+        Campo obligatorio
+    </b-form-invalid-feedback>
     </b-form-group>
 
     
 
-    <b-form-group label="Hora de ingreso" label-for="hour">
+    <b-form-group @submit.stop.prevent label="Hora de ingreso" label-for="hour">
         <b-form-input
             class="form-control"
             type="number"
@@ -99,6 +118,10 @@
             placeholder="Ingrese la hora de ingreso"
             id="hour"
         />
+
+        <b-form-invalid-feedback :state="validationHour">
+        Ingrese un valor válido
+    </b-form-invalid-feedback>
     </b-form-group>
 
 
@@ -107,7 +130,6 @@
 </b-form>
 
 <div class="tittle" id="list">Listado de Vehículos</div>
-{{time}}
 <b-table striped hover :items="list_vehicles">
 <template v-slot:cell(acciones)="row">
 <b-button size="sm" @click="loadVehicle(row)" variant="primary" class="mr-2">Modificar</b-button>

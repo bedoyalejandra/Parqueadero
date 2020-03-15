@@ -43,7 +43,7 @@ export default {
     },
     computed: {
         validationType() {
-            return this.vehicle.type.length > 0
+            return this.vehicle.type != null
         },
 
         validationPlaque() {
@@ -61,6 +61,14 @@ export default {
         validationCity() {
             return this.vehicle.city.length > 0
         },
+
+        validationDate() {
+            return this.vehicle.dateInput.length > 0
+        },
+
+        validationHour() {
+            return this.vehicle.hourInput > 0 && this.vehicle.hourInput < 24 
+        }
 
     },
     methods: {

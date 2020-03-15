@@ -114,12 +114,8 @@
     
 
     <b-form-group @submit.stop.prevent label="Hora de ingreso" label-for="hour">
-        <b-form-input
-            class="form-control"
-            v-model="vehicle.hourInput"
-            placeholder="HH:MM"
-            id="hour"
-        />
+
+    <b-time id="ex-disabled-readonly" :disabled="disabled" :readonly="readonly" v-model="vehicle.hourInput"></b-time>
 
         <b-form-invalid-feedback :state="validationHour">
         Ingrese un valor válido

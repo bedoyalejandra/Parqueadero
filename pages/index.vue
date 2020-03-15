@@ -12,6 +12,16 @@
 		</div>
 	</div>
 
+	<b-container>
+
+	<div class="text2">
+
+		
+		Parquea con PARQUEO el vehículo que tengas
+	</div>
+
+	</b-container>
+
 	<div class="container">
 			<div class="container2">
 				    <b-img src="../images/car.png" height="200" rounded="circle" alt="Circle image"></b-img>
@@ -41,6 +51,8 @@
 
 		</div>
 	</div>
+					    <b-img src="../images/space.png" height="50" rounded="circle" alt="Circle image"></b-img>
+
 
 </div>
     
@@ -129,9 +141,17 @@
         color: #000
         }
 
+		        .text2{
+        font-family: 'Oswald', sans-serif;
+        font-size: 40px;
+        font-weight: bold;
+        color: #007acc
+        }
 	.espace{
 		color: #007acc
 	}
+
+
 
 
 

@@ -1,59 +1,41 @@
 # Descripción:
-El administrador podrá crear, eliminar y editar distintos modulos y diferentes tipos de usuarios, otorgando así los permisos acceso. Este tendrá un menú privado donde podrá realizar las acciones anteriormente mencionadas.
 
-Cuando se requiere una cuenta con permisos de acceso en específico(tipos de usuario), el administrador deberá crear un usuario inicial con las características requeridas el cual deberá ser actualizado con las información restante por la persona la que se le fue otorgado.
+Página web para la gestión de vehículos en un parqueadero.
+
+## Valor de la hora:
+- CARRO 8.000
+- MOTO 4.000
+- BICICLETA 2.000
+- C AMION 21.000
+## La información requerida para los vehículos es:
+- Tipo de vehículo [CARRO, MOTO, BICICLETA, CAMION]
+- Placa
+- Color
+- Marca
+- Ciudad de la placa
+- Fecha de ingreso
+- Hora de ingreso
+## Funcionalidades:
+- Crear un vehículo.
+- Modificar vehículo.
+- Eliminar vehículo.
+- Listar vehículos.
+## Criterios de aceptación:
+- En el listado de vehículos toda la información ingresada.
+- En el listado de vehículos debe de haber una acción adicional que se llame “Dar salida”.
+- Cuando el administrador le de click, debe de indicar cuanto tiempo se demoro y cuanto debe de pagar.
+- Todos los campos del vehículo son obligatorios.
+- La placa es única.
+- Persistencia en localstorage.
+- Control de versiones con github.
 
 # Información desarrolladores
-## Carlos Valencia
-- Creación de formularios
 
-## Bryan Torres
- - Validaciones
 
 ##  Alejandra Bedoya
 - Diseño con Boostrap-Vue
 - Programación en JavaScript
 - Manejo de información en el LocalStorage
+- Validaciones
+- Creación de formularios
 
-# Crud
-
-## Datos a ingresar para el registro
-
-- Correo electronico
-- Cedula
-- Contraseña
-- Tipo de Usuario
-
-
-## Datos a ingresar para el login
-
-- Cedula
-- Contraseña
-
-
-## Permitir acceso a modulos
-
-- Rol de usuarios
-- Modulos
-
-
-## Editar perfil de personal
-- Nombre
-- Apellido
--Correo electrónico
-- Celular
-- Ciudad de residencia
-- Dirección
-- Foto de perfil
-- Ocupación
-
-
-## Crear tipos de usuario
-
--Nombre de rol
--Acceso a modulos
-
-## Crear modulos nuevos
-
--Nombre del modulo
--Descripción del módulo
